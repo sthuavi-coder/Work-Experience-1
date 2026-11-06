@@ -637,7 +637,7 @@ img {
 
 .contact-form .company-label,
 .contact-form .company-input {
-  /* display: none; */
+  display: none;
 }
 
 .contact-form label {
