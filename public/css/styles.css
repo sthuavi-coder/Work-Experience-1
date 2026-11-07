@@ -166,6 +166,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 8px 28px;
   list-style: none;
   margin: 0;
@@ -205,7 +206,7 @@ img {
 }
 
 .site-header--home .nav-links {
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 0;
 }
 
@@ -258,7 +259,8 @@ img {
 }
 
 .hero-media {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   flex-shrink: 0;
 }
 
@@ -406,7 +408,7 @@ img {
 
 .playbook-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   gap: 28px;
 }
 
@@ -746,6 +748,35 @@ img {
   padding-top: 24px;
 }
 
+@media (max-width: 1100px) {
+  .hero-inner {
+    flex-direction: column-reverse;
+  }
+
+  .hero-media {
+    max-width: 750px;
+  }
+
+  .hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-actions {
+  justify-content: center;}
+}
+
+@media (max-width: 1024px) {
+  .cta-body {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 40px;
@@ -781,6 +812,12 @@ img {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .site-header--home .container {
+  display: flex;
+  flex-direction: column;
+}
+
 }
 
 @media (max-width: 480px) {
@@ -798,5 +835,9 @@ img {
 
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .site-header .container {
+    gap: 12px 16px;
   }
 }
