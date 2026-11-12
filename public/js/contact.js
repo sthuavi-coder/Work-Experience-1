@@ -1,8 +1,13 @@
 const form = document.getElementById('contact-form');
 const statusEl = document.getElementById('form-status');
+const companyInput = document.querySelector('.company-input');
+
+const startTime = Date.now();
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
+
+  const timeTaken = Date.now() - startTime;
 
   const button = form.querySelector('button[type="submit"]');
   button.disabled = true;
@@ -10,6 +15,14 @@ form.addEventListener('submit', async (event) => {
   statusEl.className = 'form-status';
 
   const data = Object.fromEntries(new FormData(form));
+
+  if (companyInput !== "" || timeTaken < 3000) {
+    form.reset();
+    statusEl.textContent = "Thanks, we'll be in touch within one business day.";
+    statusEl.classList.add('form-status--success');
+    button.disabled = false;
+    return;
+  }
 
   try {
     const response = await fetch('/contact', {

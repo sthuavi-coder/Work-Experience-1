@@ -654,6 +654,11 @@ img {
   gap: 64px;
 }
 
+.contact-form .company-label,
+.contact-form .company-input {
+  /* display: none; */
+}
+
 .contact-form label {
   display: block;
   font-weight: 700;
