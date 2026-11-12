@@ -16,7 +16,7 @@ form.addEventListener('submit', async (event) => {
 
   const data = Object.fromEntries(new FormData(form));
 
-  if (company.value !== "" || timeTaken < 3000) {
+  if (companyInput !== "" || timeTaken < 3000) {
     form.reset();
     statusEl.textContent = "Thanks, we'll be in touch within one business day.";
     statusEl.classList.add('form-status--success');
